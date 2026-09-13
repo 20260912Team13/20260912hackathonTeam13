@@ -62,37 +62,41 @@ function landView(){
  '<div class="panel-actions"><div class="price-row"><small>土地の価格</small><strong>'+fmt(p.price)+'<small>MCR</small></strong></div>'+button('この土地を購入','buy','primary','arrow','id="buy-button"')+'<p class="demo-note">体験用クレジットを使用します</p></div></aside></main>';
 }
 function modelIllustration(id){
- return '<img class="model-illustration" src="/models/'+id+'.png" alt="" loading="eager">';
+ return '<img class="model-illustration" src="'+BUILDINGS.find(model=>model.id===id).poster+'" alt="" loading="eager">';
+}
+function dimensions(b){
+ const d=b.dimensionsMeters;
+ return '<span>幅 <b>'+d.width.toFixed(1)+'</b> m</span><span>奥行 <b>'+d.depth.toFixed(1)+'</b> m</span><span>高さ <b>'+d.height.toFixed(1)+'</b> m</span>';
 }
 function catalogView(){
  const b=building(),p=parcel();
  return '<main class="page catalog-page"><div class="catalog-heading"><div><p class="eyebrow">02 / MAKE IT YOURS</p><h1>建物を選ぶ</h1></div><div class="owned-label">'+icon('pin')+'<span>'+p.name+' / </span><strong>'+p.id+'</strong></div></div>'+
- '<section class="model-stage" aria-label="選択した建物の3Dプレビュー"><span class="model-badge">3D PREVIEW</span><span class="model-index">0'+(BUILDINGS.indexOf(b)+1)+' / 03</span><div class="scene-canvas" id="world-host"><div class="scene-hint">'+icon('rotate')+'ドラッグで建物を回す</div></div><span class="model-stage-title">'+b.name+'</span></section>'+
- '<section class="catalog-details"><p class="category">'+b.category+' / DESIGNED FOR MARS</p><h2>'+b.name+'</h2><h3>'+b.japanese+'</h3><p class="description">'+b.description+'</p><div class="building-specs"><span>'+icon('person')+b.people+' 人</span><span>'+icon('area')+b.area+' m²</span><span>'+icon('shield')+'保護構造</span></div>'+
- '<div class="model-picker" role="group" aria-label="建物カタログ">'+BUILDINGS.map(m=>'<button type="button" class="model-option '+(b.id===m.id?'selected':'')+'" data-action="model" data-id="'+m.id+'" aria-pressed="'+(m.id===b.id)+'" aria-label="'+m.name+'を選択">'+(m.id===b.id?icon('check','check'):'')+modelIllustration(m.id)+'<strong>'+m.name+'</strong><small>'+m.category+'</small></button>').join('')+'</div>'+
- '<div class="resource-line"><span>'+icon('layers')+'レゴリス <b>'+b.regolith+' t</b></span><span>'+icon('clock')+'プリント <b>'+b.hours+' h</b></span></div>'+button('この建物を建てる','build','primary','arrow','id="build-button"')+'<p class="demo-note">選んだ建物を、火星の土でかたちに。</p></section></main>';
+ '<section class="model-stage" aria-label="選択した建物の3Dプレビュー"><button type="button" class="model-badge rotation-toggle" data-action="rotation" aria-pressed="'+world.autoRotateEnabled+'">自動回転中</button><span class="model-index">0'+(BUILDINGS.indexOf(b)+1)+' / 03</span><div class="scene-canvas" id="world-host"><div class="scene-hint">'+icon('rotate')+'ドラッグで建物を回す</div></div><span class="model-stage-title">'+b.name+'</span></section>'+
+ '<section class="catalog-details"><p class="category">'+b.category+' / DESIGNED FOR MARS</p><h2>'+b.name+'</h2><h3>'+b.japanese+'</h3><p class="description">'+b.description+'</p><div class="building-specs model-dimensions" aria-label="設備を含むモデルの外形寸法">'+dimensions(b)+'</div><p class="dimension-note">モデルの外形寸法 / 設備を含む目安</p>'+
+ '<div class="model-picker" role="group" aria-label="建物カタログ">'+BUILDINGS.map(m=>'<button type="button" class="model-option '+(b.id===m.id?'selected':'')+'" data-action="model" data-id="'+m.id+'" aria-pressed="'+(m.id===b.id)+'" aria-label="'+m.nameJa+'を選択">'+(m.id===b.id?icon('check','check'):'')+modelIllustration(m.id)+'<strong>'+m.nameJa+'</strong><small>'+m.category+'</small></button>').join('')+'</div>'+
+ '<div class="resource-line"><span>'+icon('layers')+'レゴリスの積層建築</span><span>'+icon('clock')+'建設体験 <b>約14秒</b></span></div>'+button('この建物を建てる','build','primary','arrow','id="build-button"')+'<p class="demo-note">選んだ建物を、火星の土でかたちに。</p></section></main>';
 }
 function buildingView(){
  const b=building();
  return '<main class="page building-page"><section class="construction-stage" aria-label="3Dプリントの建設アニメーション"><div class="construction-meta"><i></i>LIVE FROM MARS / '+state.parcelId+'</div><div class="scene-canvas" id="world-host"><div class="scene-hint">'+icon('rotate')+'ドラッグで建設を見わたす</div></div></section>'+
- '<section class="building-details"><p class="eyebrow">03 / A PLACE IS BORN</p><h1>BUILDING<br> NOW<span style="color:var(--accent)">.</span></h1><p>あなたの街を建設中。<br>火星の土が、暮らしのかたちになっていく。</p>'+
+ '<section class="building-details"><p class="eyebrow">03 / A PLACE IS BORN</p><h1>BUILDING<br> NOW<span style="color:var(--accent)">.</span></h1><p>あなたの居場所を建設中。<br>火星の土が、暮らしのかたちになっていく。</p>'+
  '<div class="progress-panel"><div class="progress-label"><span id="build-phase">レゴリスを準備中</span><strong><span id="progress-number">0</span><small>%</small></strong></div><div class="progress-track" role="progressbar" aria-label="建設の進捗" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="progress-fill"></div></div>'+
- '<ol class="build-checklist"><li data-phase="0">'+icon('check')+'レゴリスを充填</li><li data-phase="1">'+icon('layers')+'建物を3Dプリント</li><li data-phase="2">'+icon('sun')+'暮らしの準備</li></ol></div><p class="build-caption">約14秒の建設体験です</p><div class="build-name"><strong>'+b.name+'</strong><span>'+b.regolith+' t / '+parcel().id+'</span></div></section></main>';
+ '<ol class="build-checklist"><li data-phase="0">'+icon('check')+'レゴリスを充填</li><li data-phase="1">'+icon('layers')+'建物を3Dプリント</li><li data-phase="2">'+icon('sun')+'暮らしの準備</li></ol></div><p class="build-caption">約14秒の建設体験です</p><div class="build-name"><strong>'+b.name+'</strong><span>'+parcel().id+'</span></div></section></main>';
 }
 function completeView(){
  const b=building(),p=parcel();
- return '<main class="page complete-page '+(explore?'explore-mode':'')+'"><section class="colony-stage" aria-label="完成した火星の街"><div class="scene-canvas" id="world-host"><div class="scene-hint">'+icon('rotate')+'ドラッグで街を回す</div></div></section>'+
- '<section class="complete-details"><div class="success-icon">'+icon('check')+'</div><p class="eyebrow">04 / WELCOME HOME</p><h1>街ができました。</h1><p>火星に、あなただけの場所がひとつ。<br>ここから、新しい日常がはじまります。</p>'+
- '<div class="completion-card"><h2>'+b.name+'</h2><p>'+p.name+' / '+p.id+' / MARS, 2036</p><div class="building-specs"><span>'+icon('person')+b.people+' 人</span><span>'+icon('area')+b.area+' m²</span><span>'+icon('layers')+b.regolith+' t</span></div></div>'+
- '<div class="complete-actions">'+button('街を見わたす','explore','primary','expand')+button('つくった街をシェア','share','secondary','share')+'</div>'+button('もう一度、はじめから','reset','text-button',null)+'</section>'+
- '<button class="round-button close-explore" data-action="explore-close" aria-label="街の全画面表示を閉じる">'+icon('close')+'</button><div class="explore-caption"><h2>'+b.name+'</h2><p>'+p.name+' / MY MARS, 2036</p></div></main>';
+ return '<main class="page complete-page '+(explore?'explore-mode':'')+'"><section class="colony-stage" aria-label="完成した'+b.nameJa+'"><div class="scene-canvas" id="world-host"><div class="scene-hint">'+icon('rotate')+'ドラッグで建物を回す</div></div></section>'+
+ '<section class="complete-details"><div class="success-icon">'+icon('check')+'</div><p class="eyebrow">04 / WELCOME HOME</p><h1>あなたの'+(b.isHome?'お家':'居場所')+'が<br>できました。</h1><p>火星に、あなただけの場所がひとつ。<br>ここから、新しい日常がはじまります。</p>'+
+ '<div class="completion-card"><h2>'+b.name+'</h2><p>'+b.nameJa+' / '+p.id+' / MARS, 2036</p><div class="building-specs model-dimensions">'+dimensions(b)+'</div></div>'+
+ '<div class="complete-actions">'+button('ぐるっと見てみる','explore','primary','expand')+button('この場所をシェア','share','secondary','share')+'</div>'+button('もう一度、はじめから','reset','text-button',null)+'</section>'+
+ '<button class="round-button close-explore" data-action="explore-close" aria-label="建物の全画面表示を閉じる">'+icon('close')+'</button><div class="explore-caption"><h2>'+b.name+'</h2><p>'+p.name+' / MY MARS, 2036</p></div></main>';
 }
 function render(){
   const token=++renderToken;cancelAnimationFrame(buildFrame);explore=false;
   const views={title:titleView,land:landView,catalog:catalogView,building:buildingView,complete:completeView};
   app.innerHTML=header()+views[state.stage]();
   document.body.dataset.stage=state.stage;window.scrollTo(0,0);
-  const host=document.querySelector('#world-host'),mode={title:'planet',catalog:'model',building:'printing',complete:'colony'}[state.stage];
+  const host=document.querySelector('#world-host'),mode={title:'planet',catalog:'model',building:'printing',complete:'home'}[state.stage];
   if(host&&mode){world.attach(host,mode,state.buildingId,state.parcelId);}
   if(state.stage==='building'){
     const update=()=>{
@@ -105,7 +109,7 @@ function render(){
       document.querySelector('#build-phase').textContent=['レゴリスを準備中','3Dプリント中','完成までもう少し'][phase];
       document.querySelectorAll('[data-phase]').forEach((el,i)=>{el.classList.toggle('done',i<phase);el.classList.toggle('active',i===phase);});
       world.setProgress(p);
-      if(p>=1){dispatch('complete');announce('あなたの街が完成しました。');return;}
+      if(p>=1){dispatch('complete');announce('あなたの'+(building().isHome?'お家':'居場所')+'が完成しました。');return;}
       buildFrame=requestAnimationFrame(update);
     };buildFrame=requestAnimationFrame(update);
   }
@@ -124,12 +128,11 @@ function resetDialog(){
 async function makeShareCard(){
  const b=building(),p=parcel(),canvas=document.createElement('canvas');canvas.width=1080;canvas.height=1350;
  const c=canvas.getContext('2d');c.fillStyle='#121616';c.fillRect(0,0,1080,1350);
- const shot=world.snapshot();
- if(shot){const im=new Image();im.src=shot;await im.decode();const scale=Math.min(1080/im.width,810/im.height);c.drawImage(im,(1080-im.width*scale)/2,170,im.width*scale,im.height*scale);}
- else{const im=new Image();im.src='/assets/colony.webp';await im.decode();c.drawImage(im,0,200,1080,607);}
+ const shot=world.snapshot(),im=new Image();im.src=shot||b.poster;await im.decode();
+ const scale=Math.min(1080/im.width,810/im.height);c.drawImage(im,(1080-im.width*scale)/2,170,im.width*scale,im.height*scale);
  c.fillStyle='#ed8956';c.font='bold 22px Arial';c.fillText('MARS BUILDER / 2036',64,90);
  c.fillStyle='#f7f1e9';c.font='bold 65px Arial';c.fillText('I BUILT THIS',64,990);c.fillText('ON MARS.',64,1067);
- c.font='26px Arial';c.fillText(b.name,66,1140);c.fillStyle='#bab8b3';c.font='20px Arial';c.fillText(p.name+' / '+p.id+' / '+b.regolith+' t REGOLITH',66,1183);
+ c.font='26px Arial';c.fillText(b.name,66,1140);c.fillStyle='#bab8b3';c.font='20px Arial';c.fillText(p.name+' / '+p.id+' / MY NEW HOME',66,1183);
  c.strokeStyle='#524339';c.beginPath();c.moveTo(64,1230);c.lineTo(1016,1230);c.stroke();
  c.fillStyle='#ed8956';c.font='22px Arial';c.fillText('Design life on Mars.',64,1282);c.fillStyle='#bab8b3';c.font='18px Arial';c.fillText('#BuildMars',892,1282);
  return new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
@@ -139,7 +142,7 @@ async function shareDialog(){
  try{
  const blob=await makeShareCard();if(!blob)throw new Error('card');
  if(shareUrl)URL.revokeObjectURL(shareUrl);shareUrl=URL.createObjectURL(blob);
- openDialog('<p class="eyebrow">SHARE YOUR MARS</p><h2>火星につくった、私の場所。</h2><img class="share-image" src="'+shareUrl+'" alt="完成した街のシェアカード"><p style="margin-bottom:16px">カードを保存して、あなたの火星をシェア。</p>'+button('画像を保存','download-card','primary','download'));
+ openDialog('<p class="eyebrow">SHARE YOUR MARS</p><h2>火星につくった、私の場所。</h2><img class="share-image" src="'+shareUrl+'" alt="完成した建物のシェアカード"><p style="margin-bottom:16px">カードを保存して、あなたの火星をシェア。</p>'+button('画像を保存','download-card','primary','download'));
  }catch{announce('画像を作れませんでした。もう一度お試しください。');}finally{busy=false;}
 }
 async function handleAction(event){
@@ -156,6 +159,7 @@ async function handleAction(event){
  if(action==='buy'){purchaseDialog();return;}
  if(action==='purchase'){target.disabled=true;modal.close();dispatch('purchase');announce(parcel().name+'の土地を購入しました。');return;}
  if(action==='model'){dispatch('selectBuilding',target.dataset.id);return;}
+ if(action==='rotation'){world.setAutoRotate(!world.autoRotateEnabled);return;}
  if(action==='build'){dispatch('build');return;}
  if(action==='reset'){resetDialog();return;}
  if(action==='confirm-reset'){modal.close();dispatch('reset');announce('新しい火星の暮らしを、はじめましょう。');return;}
@@ -177,10 +181,12 @@ if(import.meta.env.DEV){
  if(['land','catalog','building','complete'].includes(preview)){
   state=transition(initialState(),'start');
   if(preview!=='land')state=transition(state,'purchase');
+  const previewModel=new URLSearchParams(location.search).get('model');
+  if(BUILDINGS.some(model=>model.id===previewModel))state=transition(state,'selectBuilding',previewModel);
   if(['building','complete'].includes(preview))state=transition(state,'build',Date.now()-5000);
   if(preview==='complete')state=transition(state,'complete');
  }
  window.marsPreview={world,getState:()=>({...state})};
 }
 render();
-world.preload().then(()=>{if(state.stage==='catalog'||state.stage==='complete'){const host=document.querySelector('#world-host');world.attach(host,state.stage==='catalog'?'model':'colony',state.buildingId,state.parcelId);}});
+world.preload();

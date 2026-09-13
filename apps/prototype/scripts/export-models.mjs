@@ -1,6 +1,8 @@
 import { writeFile, mkdir } from 'node:fs/promises';
 import { GLTFExporter } from 'three/addons/exporters/GLTFExporter.js';
 import { createBuilding } from '../src/models.mjs';
+
+console.log('Regenerating legacy demo models only. Supplied public/buildings/models GLBs stay unchanged.');
 globalThis.FileReader=class {
   readAsArrayBuffer(blob){blob.arrayBuffer().then(value=>{this.result=value;this.onloadend?.();});}
   readAsDataURL(blob){blob.arrayBuffer().then(value=>{this.result='data:application/octet-stream;base64,'+Buffer.from(value).toString('base64');this.onloadend?.();});}

@@ -1,9 +1,9 @@
 """End-to-end acceptance: real clicks, persistence, downloads, responsive and reduced motion."""
-import json,os,pathlib
+import json,pathlib,os
 from playwright.sync_api import sync_playwright,expect
 root=pathlib.Path(__file__).resolve().parents[1];out=root/".visual-qa/acceptance";out.mkdir(parents=True,exist_ok=True)
 results=[];errors=[]
-base_url=os.environ.get("MARS_BASE_URL","http://127.0.0.1:5178/").rstrip("/")+"/"
+base_url=os.environ.get("MARS_BASE_URL","http://127.0.0.1:5178/")
 with sync_playwright() as pw:
  browser=pw.chromium.launch(args=["--use-angle=swiftshader","--enable-unsafe-swiftshader"])
  for name,width,height,touch in [("desktop",1440,900,False),("mobile",390,844,True)]:
@@ -21,9 +21,10 @@ with sync_playwright() as pw:
   page.locator("#buy-button").click();page.locator("#confirm-purchase").click()
   expect(page.locator("body")).to_have_attribute("data-stage","catalog")
   assert page.evaluate("window.marsPreview.getState().credits")==3400
-  for model in ["home","green","dining"]:
+  for model in ["02-greenhouse-home","03-terrace-habitat","01-mars-commons"]:
    page.locator('[data-action="model"][data-id="'+model+'"]').click()
    assert page.evaluate("window.marsPreview.getState().buildingId")==model
+  page.wait_for_function("window.marsPreview.world.ready")
   page.screenshot(path=str(out/(name+"-catalog.png")),full_page=True)
   host=page.locator("#world-host").bounding_box()
   before=page.evaluate("window.marsPreview.world.camera.position.toArray()")
@@ -38,7 +39,7 @@ with sync_playwright() as pw:
   page.locator("#start-button").click()
   expect(page.locator("body")).to_have_attribute("data-stage","complete",timeout=22000)
   assert page.evaluate("window.marsPreview.getState().parcelId")=="A-02"
-  assert page.evaluate("window.marsPreview.getState().buildingId")=="dining"
+  assert page.evaluate("window.marsPreview.getState().buildingId")=="01-mars-commons"
   page.locator('[data-action="explore"]').click();expect(page.locator(".complete-page")).to_have_class("page complete-page explore-mode")
   page.locator('[data-action="explore-close"]').click()
   page.locator('[data-action="share"]').click();expect(page.locator(".share-image")).to_be_visible()

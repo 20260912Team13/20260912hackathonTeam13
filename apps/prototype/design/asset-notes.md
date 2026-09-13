@@ -4,10 +4,12 @@
 
 - public/assets/mars-surface.webp: 今回生成した架空の火星地形。科学地図ではありません。
 - public/assets/mars-texture.webp: 今回生成した惑星表面テクスチャ。科学地図ではありません。
-- public/assets/colony.webp: チーム提供の「火星建造物イメージ1.png」を表示用に変換。共有元はリポジトリの assets/images/1.png。
-- public/assets/construction-story.webp: チーム提供の「火星建造物イメージ3.png」を表示用に変換（映像差し替え用）。共有元はリポジトリの assets/images/3.png。
-- public/models/*.glb: src/models.mjs から作成したデモ3Dモデル。
-- public/models/*.png: 実際のGLBをブラウザでレンダリングしたプレビュー。
+- public/assets/colony.webp: 火星建造物イメージ1.png を表示用に変換。
+- public/assets/construction-story.webp: 火星建造物イメージ3.png を表示用に変換（映像差し替え用）。
+- public/buildings/models/*.glb: チームから提供された交流ドーム、温室のある家、テラスの家。src/catalog.json のハッシュと照合した原本のコピー。
+- public/buildings/images/*-hero.png: 提供されたカタログ用画像。モデル選択と3Dを使えない場合の表示に使用。
+- public/models/: 最初のデモモデルと画像を保管。現在の建物選択・建設・完成画面では未使用。
+- モデルの配置、ライティング、回転と差し替え方法は model-integration.md を参照。
 
 ## 地形の生成プロンプト
 

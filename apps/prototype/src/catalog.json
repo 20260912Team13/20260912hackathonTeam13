@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "collection": "Mars Builder / Team 13",
+  "coordinateSystem": {
+    "up": "+Y",
+    "forward": "+Z",
+    "unit": "meter",
+    "groundY": 0
+  },
+  "purpose": "visual-concept-for-web",
+  "dimensionNote": "Nominal visual model dimensions, including equipment; not engineering specifications.",
+  "models": [
+    {
+      "id": "01-mars-commons",
+      "name": "Mars Commons",
+      "nameJa": "交流ドーム",
+      "features": "ドーム・尖頭アーチ・温室",
+      "sourceImage": 1,
+      "model": "models/01-mars-commons.glb",
+      "poster": "images/01-mars-commons-hero.png",
+      "editable": "blender/01-mars-commons.blend",
+      "bytes": 3717668,
+      "triangles": 124064,
+      "meshNodes": 19,
+      "dimensionsMeters": {
+        "width": 10.098,
+        "height": 5.73,
+        "depth": 9.885
+      },
+      "sha256": "fcd06d4a175c1eb3cb31df0923e3104df262c4749783226ab760d3808019f375",
+      "recommendedCameraDirection": [
+        13,
+        9,
+        19
+      ],
+      "targetHeight": 2.8,
+      "defaultAutoRotate": true
+    },
+    {
+      "id": "02-greenhouse-home",
+      "name": "Greenhouse Home",
+      "nameJa": "温室のある家",
+      "features": "丸い住居・家族の温室",
+      "sourceImage": 2,
+      "model": "models/02-greenhouse-home.glb",
+      "poster": "images/02-greenhouse-home-hero.png",
+      "editable": "blender/02-greenhouse-home.blend",
+      "bytes": 3430116,
+      "triangles": 106120,
+      "meshNodes": 21,
+      "dimensionsMeters": {
+        "width": 11.565,
+        "height": 6.0,
+        "depth": 9.912
+      },
+      "sha256": "75d611da782b2b37c87814ddb303d93545af082576800746a187baf233223eec",
+      "recommendedCameraDirection": [
+        13,
+        9,
+        19
+      ],
+      "targetHeight": 2.8,
+      "defaultAutoRotate": true
+    },
+    {
+      "id": "03-terrace-habitat",
+      "name": "Terrace Habitat",
+      "nameJa": "テラスの家",
+      "features": "段状の自由形状・丸窓・屋上の緑",
+      "sourceImage": 3,
+      "model": "models/03-terrace-habitat.glb",
+      "poster": "images/03-terrace-habitat-hero.png",
+      "editable": "blender/03-terrace-habitat.blend",
+      "bytes": 3988140,
+      "triangles": 128372,
+      "meshNodes": 20,
+      "dimensionsMeters": {
+        "width": 10.625,
+        "height": 6.69,
+        "depth": 10.022
+      },
+      "sha256": "746957ae4bf69a8d7e4fce1e93c8633b7e14858f168cddf3440391c901b44e61",
+      "recommendedCameraDirection": [
+        13,
+        9,
+        19
+      ],
+      "targetHeight": 2.8,
+      "defaultAutoRotate": true
+    }
+  ]
+}

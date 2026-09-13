@@ -8,9 +8,9 @@
 
 1. 起動時の火星をドラッグ・左右キーで回転。短い導入演出はスキップできます。
 2. 3つの土地から選び、確認画面で体験用クレジットによる購入を確定。
-3. HOME POD / DINING POD / GREEN DOME の作成済み3Dモデルから建物を選択。
+3. 交流ドーム / 温室のある家 / テラスの家 の作成済み3Dモデルから建物を選択。
 4. 約14秒の3Dプリント演出で建物が下から積み上がります。
-5. 完成した街を回転・拡大し、共有カードをPNG画像で保存。
+5. 完成したあなたのお家・居場所を回転・拡大し、共有カードをPNG画像で保存。
 
 選択と進行は同じブラウザに保存されます。再起動後は「つづきから体験する」で再開できます。
 
@@ -34,7 +34,7 @@ Windowsでは、初回の `npm ci` 後に `Start-MarsBuilder.ps1` でも起動�
 npm test        # 購入・残高・状態遷移・保存データのテスト
 npm run build  # dist/ に配布用の静的ファイルを生成
 npm run preview
-npm run models # デモ用GLBモデルを再生成
+npm run models # 保管用の旧デモモデルのみ再生成
 ```
 
 配布用の確認画面は [http://127.0.0.1:4178/](http://127.0.0.1:4178/) です。オンライン公開の設定は含みません。
@@ -47,10 +47,11 @@ npm run models # デモ用GLBモデルを再生成
 | `src/style.css`, `src/transitions.css` | 見た目・画面切り替え・起動演出 |
 | `src/state.mjs` | 土地・建物のデータと保存状態の検証 |
 | `src/world.js` | Three.jsによる火星・建物・建設・街の3D表示 |
-| `src/models.mjs` | デモ建物とロボットの生成コード |
-| `public/models/` | 読み込み用GLBと静止画プレビュー |
+| `src/models.mjs` | 建設ロボットと保管用の旧デモ建物の生成コード |
+| `public/buildings/` | 提供されたGLB3点とカタログ用画像 |
+| `src/catalog.json` | 提供モデルの名前・寸法・パス・ハッシュ |
 | `public/assets/` | アプリが使う変換済み画像 |
-| `scripts/export-models.mjs` | GLBの再生成 |
+| `scripts/export-models.mjs` | 保管用の旧デモGLBのみ再生成 |
 | `tests/` | 状態の自動テスト・ブラウザ操作の確認・プレビュー画像生成 |
 | `design/asset-notes.md` | 素材の由来と生成プロンプト |
 
@@ -58,11 +59,7 @@ Vite + JavaScript + Three.jsで動作します。実行に必要な画像と3D�
 
 ## 3Dモデルの差し替え
 
-`public/models/home.glb`、`dining.glb`、`green.glb` を置き換え、`src/state.mjs` の `BUILDINGS` にある名前・面積などを更新します。
-
-モデルはY軸が上、メートル相当、地面Y=0、原点が建物中央、外接半径約3・高さ約2〜3を想定しています。異なる縮尺では `src/world.js` のカメラと配置も調整してください。
-
-土の素材と窓の表現はデモモデルのメッシュ名に合わせています。別モデルは自身の素材を使います。静止画プレビューも合わせて更新してください。
+現在は提供された3点のGLB・カタログ・画像を使用しています。モデルの配置、自動回転、完成画面、ライティングの詳細は [モデル組み込みメモ](design/model-integration.md) を参照してください。
 
 ## ブラウザの自動確認（任意）
 
@@ -73,13 +70,14 @@ python -m pip install playwright
 python -m playwright install chromium
 # 別のターミナルで npm run dev を起動した状態で実行
 python tests/browser_journey.py
+python tests/model_integration.py
 # npm run build と npm run preview の後に実行
 python tests/production_smoke.py
 ```
 
 独自ポートで確認するときは環境変数 `MARS_BASE_URL` と `MARS_PREVIEW_URL` で各テストの接続先を指定できます。結果と画像は、管理対象外の `.visual-qa/` に出力されます。
 
-`python tests/render_previews.py` は、開発用サーバーを使って `public/models/*.png` を実際の3Dモデルから再生成します。
+`python tests/render_previews.py` は、開発用サーバーを使って現在の3Dモデルの確認画像を `.visual-qa/model-previews/` に保存します。提供画像は上書きしません。
 
 開発中のみ `?preview=land` / `catalog` / `building` / `complete` で各画面を直接確認できます。配布用ビルドでは無効です。
 
@@ -93,11 +91,10 @@ python tests/production_smoke.py
 
 ## 確認と限界
 
-- 状態の自動テスト6件、ChromiumのPC・スマートフォン相当の画面幅、購入から完成・画像保存までの操作を検証しました。
-- 建物は差し替え可能なデモ用モデルです。構造、放射線対策、レゴリス量、印刷時間、価格は架空の想定です。
+- 状態・保存データ移行・モデル照合の自動テスト8件、ChromiumのPC・スマートフォン相当の画面幅、購入から完成・画像保存までの操作を検証しました。
+- 建物はチーム提供の視覚モデルです。表示寸法は設備を含む外形の目安であり、施工仕様ではありません。土地価格と建設時間はデモ上の想定です。
 - ログイン、実際の決済、複数ユーザーの同期、サーバー側の処理はありません。購入は体験用のMCRを使います。
 - 共有機能は画像保存です。SNSへの自動投稿は行いません。
 - 3Dが使えない環境では静止画で操作を続けられます。動きを減らすOS設定にも対応しています。
-- ソフトウェアによる描画環境では約30〜38fpsでした。実スマートフォン、実GPU、Safari、オンライン公開の検証は未実施です。
+- このPCのAMD Radeon 890Mを使用したChromiumの検査では約59fpsでした。ソフトウェア描画では軽い材質へ切り替えます。実スマートフォン、Safari、オンライン公開は未検証です。
 - 配布用ビルドではThree.jsを含むJavaScriptのサイズ警告が出ますが、生成は成功します。
-

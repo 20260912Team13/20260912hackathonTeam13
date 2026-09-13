@@ -57,3 +57,20 @@ dialog{border:1px solid #625041;border-radius:24px;background:#1b1e1e;color:var(
  .brand,.header-meta>.micro,.credits small,.title-copy .eyebrow,.title-planet .scene-hint,.map-heading .eyebrow,.map-caption,.parcel-marker small,.spec-grid small,.demo-note,.catalog-heading .eyebrow,.catalog-heading .owned-label,.model-badge,.model-index,.model-stage .scene-hint,.category,.model-option strong,.model-option small,.resource-line,.building-details>.eyebrow,.construction-meta,.construction-stage .scene-hint,.build-caption,.build-name,.complete-details .eyebrow,.completion-card p,.complete-page .colony-stage .scene-hint,.explore-caption p,dialog .eyebrow{font-size:11px}
  .model-option strong{letter-spacing:0}.model-badge{letter-spacing:1px}.title-copy .eyebrow{letter-spacing:2.3px}.title-actions .primary{font-size:14px}
 }
+/* Supplied architecture catalog: quiet motion, legible model dimensions. */
+.rotation-toggle{border:1px solid #bd927057;background:#1b1d1de6;color:#ead5bf;border-radius:20px;padding:8px 12px;letter-spacing:.6px;min-height:36px;cursor:pointer}
+.rotation-toggle:hover{border-color:var(--accent)}
+.rotation-toggle[aria-pressed="false"]:before{background:var(--muted)}
+.rotation-toggle:disabled{cursor:default}
+.model-dimensions{gap:16px;flex-wrap:wrap;font-size:12px;padding-bottom:8px}
+.model-dimensions span{gap:4px}.model-dimensions b{font-size:15px;font-weight:500}
+.dimension-note{color:var(--muted);font-size:11px;line-height:1.5;margin-bottom:4px}
+.catalog-details h2,.model-stage-title,.completion-card h2{text-transform:uppercase}
+.model-option .model-illustration{width:100%;height:76px;object-fit:contain}
+.model-option strong{font-size:12px;letter-spacing:0;line-height:1.5}
+.complete-page{background:radial-gradient(ellipse at 32% 58%,#613e283d,transparent 66%),#111415}
+.scene-canvas.model-loading:after{content:"";position:absolute;inset:0;background:var(--fallback-image) center/contain no-repeat;opacity:.55}
+.scene-canvas.model-loading .scene-hint{z-index:2}
+.scene-canvas.model-loading canvas,.scene-canvas.fallback canvas{visibility:hidden}
+@media(max-width:760px){.model-option .model-illustration{height:59px;width:100%}.model-option strong{font-size:11px}.model-dimensions{gap:12px;font-size:11px;padding-top:12px}.model-dimensions b{font-size:13px}.dimension-note{font-size:11px}.rotation-toggle{top:12px;left:12px;min-height:36px;padding:7px 10px}.model-stage{height:310px}.complete-details h1{font-size:27px;line-height:1.45}.complete-page .colony-stage{height:340px}.completion-card .model-dimensions{gap:12px}.build-name{gap:12px}.build-name strong{overflow-wrap:anywhere}}
+.rotation-toggle{font-size:11px}.steps b{font-size:11px}
