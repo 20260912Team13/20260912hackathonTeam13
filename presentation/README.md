@@ -22,6 +22,5 @@
 ## 追加するファイル
 
 - `pitch-deck.pptx`
-- `script.md`
+- `script.md`: 5分発表の時間割と読み上げ台本
 - `demo-runbook.md`
-
