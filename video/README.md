@@ -1,34 +1,34 @@
-# Video
+# 動画
 
-60 second future vision movie for Mars Builder.
+Mars Builderの60秒程度の未来ビジョン映像を作る場所です。
 
-## Purpose
+## 目的
 
-This is not a product explainer. It should show the future that Mars Builder makes possible.
+これは単なるプロダクト説明動画ではありません。Mars Builderによって実現する未来を見せる映像です。
 
-## Story
+## ストーリー
 
-| Time | Scene |
+| 時間 | 内容 |
 | --- | --- |
-| 0-7 sec | 2036. Humanity has arrived on Mars. Empty red landscape. |
-| 7-15 sec | Text: But who will build the city? |
-| 15-23 sec | User opens phone and types a wish. |
-| 23-32 sec | AI designs a building. A 3D model appears. |
-| 32-40 sec | User places the building on Mars and taps BUILD. |
-| 40-50 sec | Large 3D printer builds with regolith. |
-| 50-56 sec | People begin using the completed place. |
-| 56-60 sec | Camera pulls back: many buildings, each made by someone. |
+| 0-7秒 | 2036年。人類が火星に到着した。まだほとんど何もない赤い大地。 |
+| 7-15秒 | テキスト: では、この街は誰が作るのか？ |
+| 15-23秒 | ユーザーがスマホを開き、火星に欲しい場所を入力する。 |
+| 23-32秒 | AIが建物を設計し、3Dモデルが現れる。 |
+| 32-40秒 | ユーザーが火星上に配置し、BUILDを押す。 |
+| 40-50秒 | 大型3Dプリンターがレゴリスを使って建築する。 |
+| 50-56秒 | 完成した場所で人が過ごし始める。 |
+| 56-60秒 | カメラが引き、誰かが作った場所が火星上に増えている。 |
 
-Final line:
+最後の一文:
 
 ```text
 Design life on Mars.
 ```
 
-## Deliverables
+## 成果物
 
-- Storyboard
-- Generation prompts
-- Source clips
-- Final edited movie
+- 絵コンテ
+- 生成用プロンプト
+- 素材クリップ
+- 最終編集動画
 

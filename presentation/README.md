@@ -1,25 +1,25 @@
-# Presentation
+# 発表資料
 
-Pitch materials for the hackathon demo.
+ハッカソン発表用の資料、台本、デモ進行を作る場所です。
 
-## Goal
+## ゴール
 
-Make judges feel:
+審査員に次の感覚を持ってもらうこと。
 
 ```text
 火星の街は、NASAや建築家だけが作るものではなく、自分たち一人ひとりが作れるかもしれない。
 ```
 
-## Suggested Flow
+## 発表の流れ
 
-1. Problem: space cities are only for specialists.
-2. Shift: future residents should shape their own city.
-3. Product: Mars Builder.
-4. Demo: wish → AI architecture → place → build → share.
-5. Why now: generative AI, robotic construction, ISRU, regolith.
-6. Future: one place becomes a city.
+1. 課題: 宇宙都市づくりは専門家だけのものに見える。
+2. 転換: 未来の火星住民自身が、自分の街を形づくれるべき。
+3. プロダクト: Mars Builder。
+4. デモ: 願望 → AI建築案 → 配置 → 建設 → 共有。
+5. 実現性: 生成AI、ロボット建築、ISRU、レゴリス利用。
+6. 将来像: 一つの場所が集まり、やがて街になる。
 
-## Files To Add
+## 追加するファイル
 
 - `pitch-deck.pptx`
 - `script.md`

@@ -1,63 +1,63 @@
-# Mars Builder Production Brief
+# Mars Builder 制作ブリーフ
 
-## Core Message
+## 一番伝えたいこと
 
 NASAや建築家だけでなく、火星に暮らす一人ひとりが街づくりに参加できる。
 
-## Product Sentence
+## プロダクトを説明する一文
 
 2036年、火星の街は専門家だけが作るものではない。暮らしたい未来を言葉にすれば、AIがそれを建築へ変えてくれる。
 
-## Experience Goal
+## 体験のゴール
 
 ユーザーが願望を入力してから、自分の建物が火星に完成するまでを体験できる。
 
-## Screens
+## 画面
 
-1. Mars Colony
+1. 火星コロニー
    - 火星の風景
-   - CTA: What do you want to build on Mars?
+   - CTA: 火星にどんな場所を作りたいですか？
 
-2. AI Chat / Input
-   - User: I want a place where I can eat with friends while looking at Earth.
-   - AI: Designing your place...
+2. AIチャット / 入力
+   - ユーザー: 地球を眺めながら、友達と食事できる場所が欲しい。
+   - AI: あなたの場所を設計しています...
 
-3. Building Proposal
+3. 建築提案
    - EARTH VIEW DINING POD
-   - 12 people
-   - 45 sqm
-   - 18.4t Regolith
-   - 31h Print Time
-   - CTA: Place on Mars
+   - 12人
+   - 45平方メートル
+   - レゴリス 18.4t
+   - プリント時間 31h
+   - CTA: 火星に配置する
 
-4. Location
-   - Crater side
-   - Earth view hill
-   - Central colony
-   - CTA: Build here
+4. 配置場所
+   - クレーターサイド
+   - 地球が見える丘
+   - 中央コロニー
+   - CTA: ここに建てる
 
-5. Build
-   - 18.4t Regolith
-   - READY
+5. 建設
+   - レゴリス 18.4t
+   - 準備完了
    - BUILD
-   - Regolith charging...
-   - 3D Printing...
-   - Building completed.
+   - レゴリス充填中...
+   - 3Dプリント中...
+   - 建築完了
 
-6. Completed / Share
-   - YOU BUILT A NEW PLACE ON MARS.
-   - Share to X
-   - Share to Instagram
-   - Copy Link
+6. 完成 / 共有
+   - 火星に新しい場所を作りました。
+   - Xに共有
+   - Instagramに共有
+   - リンクをコピー
 
-## Priority
+## 優先順位
 
 1. ストーリーが伝わる
 2. 一連の体験が動く
 3. ビジュアルが魅力的
 4. 技術的に凝る
 
-## Do Not Build
+## 今回やらないこと
 
 - 高度な建築シミュレーション
 - 正確な構造計算

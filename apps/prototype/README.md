@@ -1,38 +1,38 @@
-# Web Prototype
+# Webプロトタイプ
 
-Mobile-first interactive prototype for Mars Builder.
+Mars Builderのスマホ中心のインタラクティブデモを作る場所です。
 
-## Goal
+## ゴール
 
-Show the complete MVP flow:
+MVPの一連の流れを、審査員がスマホアプリのように触れる状態にします。
 
 ```text
-Mars Colony → AI Chat → Building Proposal → Location → Build → Completed / Share
+火星コロニー → AIチャット → 建築提案 → 配置 → BUILD → 完成 / 共有
 ```
 
-## Recommended Implementation
+## 実装方針
 
-- Keep it frontend-only for speed.
-- Mock AI output first.
-- Use one strong visual style rather than many features.
-- Optimize for phone screen demo.
+- まずはフロントエンドだけで作る。
+- AI出力はモックでよい。
+- 機能数より、1つの強い体験とビジュアルを優先する。
+- デモはスマホ画面で見せる前提にする。
 
-## Suggested Files
+## 想定ファイル
 
 ```text
 apps/prototype/
-├── src/              # App source
-├── public/           # Static assets
+├── src/              # アプリ本体
+├── public/           # 静的素材
 └── README.md
 ```
 
-## Design Tone
+## デザインの方向性
 
-Apple x NASA x Airbnb x Minecraft:
+Apple x NASA x Airbnb x Minecraft の感覚。
 
-- minimal
-- calm
-- premium
-- human
-- future daily tool
+- ミニマル
+- 静か
+- 上質
+- 人間的
+- 未来の日常道具
 

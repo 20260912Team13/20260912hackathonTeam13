@@ -1,45 +1,45 @@
-# Design
+# デザイン
 
-Design direction and shared copy for Mars Builder.
+Mars Builderのデザイン方針、共通コピー、ビジュアル素材の方向性をまとめる場所です。
 
-## Keywords
+## キーワード
 
-- Minimal
-- Future
-- Human
-- Space
-- Calm
-- Premium
+- ミニマル
+- 未来的
+- 人間的
+- 宇宙
+- 静か
+- 上質
 
-## Avoid
+## 避けること
 
-- Military sci-fi dashboard
-- Too many expert terms
-- Complex construction controls
-- Overbuilding features
+- 軍事的なSF操作パネル感
+- 専門用語の出しすぎ
+- 複雑な建築操作
+- 機能を盛り込みすぎること
 
-## Core Copy
+## コアコピー
 
 ```text
 Design life on Mars.
 ```
 
 ```text
-What do you want to build on Mars?
+火星にどんな場所を作りたいですか？
 ```
 
 ```text
-I built this on Mars.
+火星に自分の場所を作った。
 ```
 
-## Example Building
+## 建物例
 
 ```text
 EARTH VIEW DINING POD
-12 people
-45 sqm
-18.4t Regolith
-31h Print Time
+12人
+45平方メートル
+レゴリス 18.4t
+プリント時間 31h
 Mars / 2036
 #BuildMars
 ```

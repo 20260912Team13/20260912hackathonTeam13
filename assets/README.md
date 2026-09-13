@@ -1,12 +1,12 @@
-# Assets
+# 素材
 
-Shared visual and media assets.
+画像、動画、SNS共有カードなど、チーム全体で使う素材を置く場所です。
 
-## Folders
+## フォルダ
 
-- `images`: still images, renders, UI backgrounds
-- `video`: generated clips and edited exports
-- `share-cards`: SNS share card images
+- `images`: 静止画、レンダー、UI背景
+- `video`: 生成クリップ、編集済み動画
+- `share-cards`: SNS共有カード画像
 
-Keep source assets here so the web prototype, video, and presentation can reuse the same visual language.
+Webプロトタイプ、動画、発表資料で同じ世界観を使い回せるように、元素材はここにまとめます。
 

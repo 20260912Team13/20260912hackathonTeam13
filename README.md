@@ -4,79 +4,79 @@ Design life on Mars.
 
 2036年、火星の街は専門家だけが作るものではない。暮らしたい未来を言葉にすれば、AIがそれを建築へ変えてくれる。
 
-## Concept
+## コンセプト
 
-Mars Builder is a future product experience where everyday Mars residents describe the place they want, and AI translates that human desire into a buildable architecture plan using Martian regolith and robotic 3D printing.
+Mars Builderは、2036年の火星で暮らす普通の住民が「こんな場所が欲しい」と言葉で伝えるだけで、AIがその願望を建築可能な設計案へ変換する未来のプロダクト体験です。
 
-This hackathon prototype is not a precise space architecture simulator. It is an experience of building your own place on Mars.
+このハッカソンで作るものは、正確な宇宙建築シミュレーターではありません。大事なのは「自分も火星の街を作れるかもしれない」と感じられる体験です。
 
-## MVP Flow
+## MVPの体験
 
-1. Imagine: user writes what they want to build.
-2. AI Design: AI converts the wish into a building proposal.
-3. Place: user chooses where to place it on Mars.
-4. Build: regolith is charged and 3D printing begins.
-5. Complete: user sees the finished place and share card.
+1. 想像する: ユーザーが火星に欲しい場所を入力する。
+2. AI設計: AIが願望を建築案へ変換する。
+3. 配置する: 火星上の候補地を選ぶ。
+4. 建設する: レゴリス充填と3Dプリントが始まる。
+5. 完成する: 完成した建物とSNS共有カードを見る。
 
-## Team Workstreams
+## チーム分担
 
-| Area | Directory | Owner | Goal |
+| 領域 | ディレクトリ | 担当 | ゴール |
 | --- | --- | --- | --- |
-| Web prototype | `apps/prototype` | TBD | Mobile-first interactive demo |
-| Moving UI / motion | `apps/prototype` + `assets/video` | TBD | Build sequence, transitions, UI animation |
-| Video | `video` | TBD | 60 sec future vision movie |
-| Presentation | `presentation` | TBD | Pitch deck and demo script |
-| Design / assets | `design`, `assets` | TBD | Visual direction, images, share cards |
-| Product docs | `docs` | TBD | Concept, architecture, AI usage, future vision |
+| Webプロトタイプ | `apps/prototype` | 未定 | スマホ中心の動くデモ |
+| 動くUI / モーション | `apps/prototype` + `assets/video` | 未定 | BUILD演出、画面遷移、UIアニメーション |
+| 動画 | `video` | 未定 | 60秒程度の未来ビジョン映像 |
+| 発表資料 | `presentation` | 未定 | ピッチ資料、発表台本、デモ進行 |
+| デザイン / 素材 | `design`, `assets` | 未定 | ビジュアル方針、画像、SNSカード |
+| 仕様 / ドキュメント | `docs` | 未定 | コンセプト、構成、AI活用、将来像 |
 
-## Repository Structure
+## リポジトリ構成
 
 ```text
 .
 ├── apps/
-│   └── prototype/        # Web app / mobile prototype
+│   └── prototype/        # Webアプリ / スマホ向けプロトタイプ
 ├── assets/
-│   ├── images/           # Generated or designed still images
-│   ├── share-cards/      # SNS share card exports
-│   └── video/            # Video clips and rendered sequences
-├── design/               # Design direction, UI references, copy
-├── docs/                 # Product brief, architecture, AI usage
-├── presentation/         # Pitch deck, speaking script, demo plan
-└── video/                # Storyboard, prompts, edit plan
+│   ├── images/           # 生成画像、UI背景、レンダー画像
+│   ├── share-cards/      # SNS共有カード
+│   └── video/            # 動画素材、書き出し済み映像
+├── design/               # デザイン方針、UI参考、コピー
+├── docs/                 # 仕様、構成、AI活用、未来像
+├── presentation/         # 発表資料、台本、デモ進行
+└── video/                # 絵コンテ、生成プロンプト、編集計画
 ```
 
-## Demo
+## デモの流れ
 
-Target demo experience:
+目標とする体験:
 
 ```text
-Wish input
-→ AI generated proposal
-→ place on Mars
+願望を入力
+→ AIが建築案を生成
+→ 火星上に配置
 → BUILD
-→ completed building
-→ share card
+→ 建物が完成
+→ SNS共有カードを生成
 ```
 
-## Architecture
+## 技術構成
 
-For the hackathon MVP, the app can use mocked AI responses and local assets. The important thing is that the experience feels coherent:
+ハッカソンMVPでは、AI応答や建築数値はモックで構いません。重要なのは、次の役割分担が一貫して伝わることです。
 
-- Human: imagines the place.
-- AI: translates desire into architecture.
-- Robot: builds using Martian regolith.
+- 人間: 欲しい未来を想像する。
+- AI: 願望を建築案へ翻訳する。
+- ロボット: 火星のレゴリスで建てる。
 
-## AI Usage
+## AIの使い方
 
-AI is positioned as the translator from:
+AIの中心的な役割は、次の変換です。
 
 ```text
-Human Desire → Architecture
+人間の願望 → 建築可能な要件
 ```
 
-It generates the building name, capacity, area, regolith amount, print time, safety notes, and share copy from a natural language wish.
+ユーザーの自然文から、建物名、利用人数、面積、必要レゴリス量、プリント時間、安全性メモ、共有用コピーを生成します。
 
-## Future Vision
+## 将来像
 
-One person builds one place. 100 people build 100 places. Eventually, a city grows from human imagination.
+一人が一つの場所を作る。100人が100の場所を作る。やがて、人間の想像力から火星の街が育っていく。
 
