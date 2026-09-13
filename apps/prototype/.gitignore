@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.visual-qa/
+.npm-cache/
+*.log
+__pycache__/
+.venv/
+.env
+.env.*
+!.env.example
